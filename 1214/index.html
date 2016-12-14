@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+/*        CSS RESET*/
+        @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        *{
+            box-sizing: border-box;
+            font-family: "Roboto","noto sans TC",sans-serif;
+        }
+        body,h1,h2,h3,h4,h5,h6,p{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            vertical-align: top;
+            border: 0;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .full-width{
+            width: 100%;
+        }
+        .fixed-width{
+            width: 1200px;
+            margin: auto;
+        }
+        .col-3{
+            float: left;
+            width: 380px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .col-4{
+            float: left;
+            width: 280px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        nav{
+            position: fixed;
+        }
+        nav .logo{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #aaa;
+        }
+        nav .menu {
+         float: right;   
+        }
+        nav .menu ul{
+            margin: 0;
+            padding: 0;
+        }
+        nav .menu li{
+            float: left;
+            list-style-type: none;
+        }
+        nav .menu a{
+            display: block;
+            padding-left: 15px;
+            padding-right: 15px;
+            height: 100px;
+            line-height: 100px;
+            color: #f8f3f3;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        header {
+            background-image: url(http://lorempicsum.com/rio/800/600/4);
+            background-size: cover;
+            height: 600px;
+/*            padding-top: 250px;*/
+/*            padding-bottom: 250px;*/
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 0;
+        }
+        header::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+        header .content {
+            font-size: 16px;
+            color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        header .content h1{
+            letter-spacing: 5px;
+            font-size: 60px;
+        }
+        header .content p{
+            letter-spacing: 2px;
+            margin-top: 10px;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+        header .content a{
+            display: inline-block;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            border: 1px solid;
+        }
+        #about{
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        #about .col-3{
+            text-align: center;
+            padding: 20px;
+        }
+        #about h3{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        #about p{
+            font-size: 14px;
+        }
+        #about .col-3:nth-of-type(1) .icon{
+            color: skyblue;
+        }
+        #about .col-3:nth-of-type(2) .icon{
+            color: #fff507; 
+        }
+        #about .col-3:nth-of-type(3) .icon{
+            color: #71ff08;
+        }
+        #ad{
+            background-image: url(http://news.xinhuanet.com/foto/2013-10/28/125610370_11n.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 70px;
+            padding-bottom: 70px;
+            text-align: center;
+            color: #fff;
+        }
+        #ad p{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        #profile {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        #profile div:nth-of-type(1){
+            text-align: center;
+        }
+        #profile .detail{
+            display:inline-block;
+            vertical-align: middle;
+            font-size: 0;
+            width: 100%;
+        }
+        #profile .detail::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+        #profile .thumb{
+            display:inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            width: 80px;
+        }
+        #profile .position{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            width: 300px;
+            text-align: left;
+        }
+        #profile div:nth-of-type(2) .col-3>p {
+            padding: 20px 30px 40px 20px;
+            text-align: left;
+        }
+        #blog{
+            background-color: #ddd;
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+        #blog .gallery{
+            position: relative;
+        }
+        #blog .gallery .date{
+            position: absolute;
+/*            width: 40px;*/
+/*            height: 40px;*/
+            padding: 8px;
+            background-color: rgba(0,0,0,.5);
+            color: #fff;
+            top: 0;
+            left: 40px;
+            text-align: center;
+        }
+        #blog .gallery+p {
+           margin-top: 20px;
+            color: #666;
+        }
+        .title {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 50px;
+        }
+        .title h2 {
+            color:darkcyan;
+        }
+        .title p {
+            color: #999;
+            font-size: 14px;
+            line-height: 36px;
+        }
+        footer .logo{
+            width: 100px;
+            height: 70px;
+            background-color: #ccc;
+            float: left;
+        }
+        footer .copyright{
+            line-height: 70px;
+            float: left;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+        footer .menu{
+            float: right;
+        }
+        footer .menu a{
+            line-height: 70px;
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="full-width clearfix">
+        <div class="fixed-width">
+            <div class="logo"></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Journal</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="full-width">
+        <div class="content">
+            <h1>Qwerty</h1>
+            <p>asdasd sdfsdf ASAdas asdasf</p>
+            <a href="#">MORE</a>
+        </div>
+    </header>
+    <div id="about" class="full-width clearfix">
+        <div class="fixed-width">
+            <div class="col-3">
+                <div class="icon"><span class="fa fa-anchor fa-4x" ></span></div>
+                <h3>Qwerty</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At non, suscipit rem corporis, optio ad ratione quibusdam nisi vero nesciunt, repellendus cum blanditiis libero. 
+                </p>
+            </div>
+                <div class="col-3">
+                <div class="icon"><span class="fa fa-asterisk fa-4x"></span></div>
+                <h3>Qwerty</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At non, suscipit rem corporis, optio ad ratione quibusdam nisi vero nesciunt, repellendus cum blanditiis libero. 
+                </p>
+            </div>
+                <div class="col-3">
+                <div class="icon"><span class="fa fa-university fa-4x"></span></div>
+                <h3>Qwerty</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At non, suscipit rem corporis, optio ad ratione quibusdam nisi vero nesciunt, repellendus cum blanditiis libero. 
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="ad" class="full-width">
+      <div class="content">
+       <h2>Qwerty</h2>
+       <p>asdasfdfgdfghh sdfsdfsdfsdf</p>
+       <div><span class="fa fa-play-circle fa-4x"></span></div>
+       </div>
+    </div>
+    <div id="profile" class="full-width clearfix">
+        <div class="fixed-width title">
+            <h2>Profile</h2>
+            <p>Lorem ipsum dolor sit amet </p>
+        </div>
+        <div class="fixed-width">
+            <div class="col-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nobis libero, omnis quos voluptatibus tempore hic ducimus illo cupiditate, voluptatem debitis eos, aut at quam nulla temporibus qui, eius dolores?
+                </p>
+                <div class="detail">
+                    <div class="thumb"><span class="fa fa-pagelines fa-3x"></span></div>
+                    <div class="position">
+                        <h3>CEO</h3>
+                        <p>John Doe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nobis libero, omnis quos voluptatibus tempore hic ducimus illo cupiditate, voluptatem debitis eos, aut at quam nulla temporibus qui, eius dolores?
+                </p>
+                <div class="detail">
+                    <div class="thumb"><span class="fa fa-pagelines fa-3x"></span></div>
+                    <div class="position">
+                        <h3>CEO</h3>
+                        <p>John Doe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nobis libero, omnis quos voluptatibus tempore hic ducimus illo cupiditate, voluptatem debitis eos, aut at quam nulla temporibus qui, eius dolores?
+                </p>
+                <div class="detail">
+                    <div class="thumb"><span class="fa fa-pagelines fa-3x"></span></div>
+                    <div class="position">
+                        <h3>CEO</h3>
+                        <p>John Doe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="blog" class="full-width clearfix">
+        <div class="fixed-width title">
+            <h2>Qwerty</h2>
+            <p>asdja sdfsdf sdfsdfsdf</p>
+        </div>
+        <div class="fixed-width">
+            <div class="col-4">
+                <div class="gallery">
+                    <div class="date">01<br>Jun</div>
+                    <img src="http://img.zcool.cn/community/03338b0554c783700000158fc5f118e.jpg" alt="">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora unde sapiente, harum ipsam deserunt.
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="gallery">
+                    <div class="date">05<br>Feb</div>
+                    <img src="http://img.zcool.cn/community/03338b0554c783700000158fc5f118e.jpg" alt="">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora unde sapiente, harum ipsam deserunt.
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="gallery">
+                    <div class="date">10<br>Mar</div>
+                    <img src="http://img.zcool.cn/community/03338b0554c783700000158fc5f118e.jpg" alt="">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora unde sapiente, harum ipsam deserunt.
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="gallery">
+                    <div class="date">15<br>Apr</div>
+                    <img src="http://img.zcool.cn/community/03338b0554c783700000158fc5f118e.jpg" alt="">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora unde sapiente, harum ipsam deserunt.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="full-width">
+        <div class="fixed-width">
+            <div class="logo"></div>
+            <div class="copyright">
+            &copy; LCC Design All Rights Reserved - 2016</div>
+        </div>
+        <div class="menu">
+            <a href="#">About</a>
+            <a href="#">FAQ</a>
+            <a href="#">Service</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
